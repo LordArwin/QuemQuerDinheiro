@@ -1,0 +1,251 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QQD_Run"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Name="Inicio1" x:Class="QQD_Run.Inicio"
+        mc:Ignorable="d"
+        Title="Quem Quer Dinheiro" Height="520.438" Width="889.196" WindowStartupLocation="CenterScreen" Icon="images/money3.png" WindowState="Maximized">
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo/>
+    </Window.TaskbarItemInfo>
+    <Grid x:Name="FramePrincipal" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="873*"/>
+        </Grid.ColumnDefinitions>
+        <Expander x:Name="Menu" Header="MENU" Margin="24,53,0,0" Background="#FFF1EEEE" Cursor="Hand" IsExpanded="True" Grid.Column="1" HorizontalAlignment="Left" Width="6" Height="3" VerticalAlignment="Top">
+            <Canvas x:Name ="Canva1" Height="302" VerticalAlignment="Top" Cursor="Arrow" Margin="-16,0,-202,0" Background="#FFA09B9B">
+                <Button x:Name="bntInicio" Content="Início" Canvas.Top="23" Width="208" Height="32" BorderThickness="0" Cursor="Hand" ToolTip="Abre a tela inicial" Click="AbrirInicio" MouseEnter="Focusbnt" MouseLeave="Desfocusbnt" Canvas.Left="7"/>
+                <Button x:Name="bntDespesa" Content="Adicionar Despesa" Canvas.Top="60" Width="208" Height="32" BorderThickness="0" Cursor="Hand" Click="AbrirDespesa" MouseEnter="Focusbntdespesa" MouseLeave="Desfocusbntdespesa" Canvas.Left="7" ToolTip="Adicionar Despesa" Background="#FFDDDDDD"/>
+                <Button x:Name="bntCarteira" Content="Configurações" Canvas.Top="171" Width="208" Height="32" BorderThickness="0" Cursor="Hand" Click="AbrirCarteira" Canvas.Left="7" ToolTip="Entrar na tela de configurações da carteira" MouseEnter="Focusbntcarteira" MouseLeave="Desfocusbntcarteira"/>
+                <Button x:Name="bntMetas" Content="Adicionar Metas" Width="208" Height="32" BorderThickness="0" HorizontalAlignment="Left" Canvas.Top="134" Cursor="Hand" Click="AbrirMetas" Canvas.Left="7" ToolTip="Adicionar Metas" MouseEnter="Focusbntmetas" MouseLeave="Desfocusbntmetas" Background="#FFDDDDDD"/>
+                <Button x:Name="bntGanho" Content="Adicionar Ganho" Canvas.Top="97" Width="208" Height="32" BorderThickness="0" Cursor="Hand" Click="AbrirGanho" MouseEnter="Focusbntganho" MouseLeave="Desfocusbntganho" Canvas.Left="7" ToolTip="Adicionar Rendimento" Background="#FFDDDDDD"/>
+                <Image HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="20" Canvas.Left="14" Canvas.Top="30" Source="images/home.png" ToolTip="Início"/>
+                <Button x:Name="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="32" BorderThickness="0" Cursor="Hand" Background="{x:Null}" ToolTip="Sair" Canvas.Left="10" Canvas.Top="254" Click="Sair">
+                    <Image x:Name="imageLogout" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="31" Source="images/logout.png" RenderTransformOrigin="0.5,0.5" AutomationProperties.HelpText="Sair" AutomationProperties.IsRowHeader="False"/>
+                </Button>
+                <Button x:Name="bntRelatorio" Content="Relatório" Width="208" Height="32" BorderThickness="0" HorizontalAlignment="Left" Canvas.Top="208" Cursor="Hand" Click="AbrirRelatorio" Canvas.Left="7" ToolTip="Entrar na tela de relatórios" MouseEnter="Focusbntrelatorio" MouseLeave="Desfocusbntrelatorio"/>
+            </Canvas>
+        </Expander>
+        <Grid x:Name="GridPrincipal" Margin="0,56,35,33" HorizontalAlignment="Right" Width="836" Grid.Column="1"/>
+        <Grid x:Name="GridSecundario" Margin="237,55,36,33" Grid.Column="1">
+
+            <Grid x:Name="CanvaInicio" Background="White" Visibility="Visible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="95*"/>
+                    <ColumnDefinition Width="81*"/>
+                    <ColumnDefinition Width="19*"/>
+                    <ColumnDefinition Width="97*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="bem_vindo" Content="Bem Vindo, " Margin="0,10,19,0" VerticalAlignment="Top" FontSize="18" Grid.ColumnSpan="2" Height="45" Grid.Column="1"/>
+                <Grid x:Name="GridMetaIni" Grid.Column="1" Margin="0,0,8,10" Background="#FF554EE2" Height="204" VerticalAlignment="Bottom">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="17*"/>
+                        <ColumnDefinition Width="147*"/>
+                        <ColumnDefinition Width="18*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Metas Atuais" HorizontalAlignment="Left" Width="116" RenderTransformOrigin="0.522,0.259" FontSize="15" Margin="11,5,0,0" Height="27" VerticalAlignment="Top" Grid.Column="1" Foreground="White"/>
+                    <Image x:Name="metaIco" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="21" Source="images/metaatual.png" Margin="7,10,0,0" Grid.ColumnSpan="2"/>
+                    <ProgressBar x:Name="ProgressoAtual" Margin="2,79,0,0" Grid.Column="1" Height="20" VerticalAlignment="Top" Maximum="2222"/>
+                    <Label x:Name="MesMeta" Content="Meta de: " Margin="2,53,31,0" VerticalAlignment="Top" Grid.Column="1" Foreground="White"/>
+                    <Label x:Name="lblProximo" Content="Meta de rendimento" Margin="2,118,10,0" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2" Foreground="White"/>
+                    <ProgressBar x:Name="ProgressoProximo" Grid.Column="1" Height="20" Margin="0,144,2,0" VerticalAlignment="Top"/>
+                    <Label x:Name="PorcentagemAtual" Content="0%" Grid.Column="1" Margin="59,76,50,102"/>
+                    <Label x:Name="PorcentagemProximo" Content="0%" Grid.Column="1" Margin="59,142,56,31"/>
+                    <Label x:Name="lblAtual" Content="0,0/0,0&#xA;" Margin="139,77,2,0" VerticalAlignment="Top" Grid.Column="1" Height="23"/>
+                    <Label x:Name="MetaMesProximo" Content="0,0/0,0" Grid.Column="1" Margin="139,144,2,0" VerticalAlignment="Top" Height="27"/>
+                    <Label x:Name="DescricaoMeta1" Content="Descrição" Grid.Column="1" Margin="2,100,10,0" VerticalAlignment="Top" FontSize="9" Foreground="White"/>
+                    <Label x:Name="DescricaoMeta2" Content="Descrição" Grid.Column="1" Margin="4,164,8,0" VerticalAlignment="Top" FontSize="9" Foreground="White"/>
+                    <Button x:Name="buttondelete1" Grid.Column="1" Margin="0,53,2,0" VerticalAlignment="Top" Click="Buttondelete1_Click" Background="{x:Null}" Height="26" HorizontalAlignment="Right" Width="29">
+                        <Image x:Name="lixeira" Height="24" Width="21" Source="images/iconfinder_icon-trash-b_211935.png" RenderTransformOrigin="0.5,0.521"/>
+                    </Button>
+                    <Button x:Name="buttondelete1_Copy" Grid.Column="1" Margin="0,118,0,0" VerticalAlignment="Top" Click="ButtonClear2" Background="{x:Null}" Height="26" HorizontalAlignment="Right" Width="29">
+                        <Image x:Name="lixeira1" Height="24" Width="21" Source="images/iconfinder_icon-trash-b_211935.png"/>
+                    </Button>
+                </Grid>
+                <Grid x:Name="GridDespesaIni" Grid.Column="2" Margin="10,0,8,10" Background="#FFF93F3F" Height="204" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Image HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="33" Source="images/prejuizo.png"/>
+                    <Label Content="Total de despesas do Mês" Margin="28,5,25,0" VerticalAlignment="Top" FontSize="15" Height="32" Foreground="White"/>
+                    <Label Content="R$" Margin="7,42,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Width="28" Foreground="White"/>
+                    <Label x:Name="DespesaMes" Content="900,00" Margin="35,68,0,0" VerticalAlignment="Top" FontSize="30" Height="43" Foreground="White"/>
+                    <Label x:Name="MesCanvaDespesa" Content="Maio /2019" Margin="0,0,10,10" VerticalAlignment="Bottom" FontSize="20" FontFamily="Calibri" HorizontalAlignment="Right" Width="141" Foreground="White"/>
+                </Grid>
+                <Grid x:Name="GridGanhoIni" Grid.Column="4" Margin="10,0,0,10" Background="#FF51D151" Height="204" VerticalAlignment="Bottom">
+                    <Image HorizontalAlignment="Left" Height="32" Margin="5,4,0,0" VerticalAlignment="Top" Width="32" Source="images/pagment.png"/>
+                    <Label Content="Total de ganhos do Mês" Margin="37,0,27,168" VerticalAlignment="Bottom" FontSize="15" Height="32" Foreground="White"/>
+                    <Label Content="R$" HorizontalAlignment="Left" Margin="13,41,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Foreground="White"/>
+                    <Label x:Name="GanhoMes" Content="900,00" Margin="41,71,0,0" VerticalAlignment="Top" FontSize="30" Foreground="White"/>
+                    <Label x:Name="MesCanvaGanhos" Content="Maio /2019" Margin="0,0,10,10" FontFamily="Calibri" FontSize="20" HorizontalAlignment="Right" Width="137" Height="34" VerticalAlignment="Bottom" Foreground="White"/>
+                </Grid>
+                <Grid Grid.Column="3" Height="100" Margin="10,17,3,0" VerticalAlignment="Top" Grid.ColumnSpan="3">
+                    <Label x:Name="ValorCarteira" Content="10.000.000" VerticalAlignment="Top" Foreground="#FF00722F" FontSize="20" Height="35" RenderTransformOrigin="0.807,-0.014" Margin="10,55,10,0"/>
+                    <Label Content="R$:" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" RenderTransformOrigin="-0.214,0.467" Height="30" Margin="10,37,151,0"/>
+                    <Label Content="Saldo na cateira:" VerticalAlignment="Top" Height="30" FontSize="15" RenderTransformOrigin="0.421,-0.106" Margin="0,19,175,0"/>
+                    <Image Margin="115,0,0,0" Source="images/wallet.png" Height="67" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78" RenderTransformOrigin="-0.424,0.638"/>
+                </Grid>
+                <Label x:Name="Texto_Apresentacao" Content="Aqui você pode observar&#xA;seu progresso atual em suas&#xA;metas  e ganhos/despesas &#xA;em tempo real, assim como &#xA;observar seu saldo na carteira." Margin="2,39,170,346" Grid.Column="1"/>
+            </Grid>
+            <Grid x:Name="CanvaDespesa" Visibility="Hidden" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="163*"/>
+                    <ColumnDefinition Width="437*"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="CategoriaDespesa" HorizontalAlignment="Left" Margin="159,73,0,0" VerticalAlignment="Top" Width="204" Height="26" SelectedIndex="1" BorderThickness="1,0,0,0" IsReadOnly="True" Background="#FF5A9560" BorderBrush="#FF5AB06E" Foreground="#FF0E0E0E" Cursor="Hand" Grid.Column="1">
+                    <ComboBoxItem Content="Lazer"/>
+                    <ComboBoxItem Content="Alimentação"/>
+                    <ComboBoxItem Content="Educação"/>
+                    <ComboBoxItem Content="Cinema"/>
+                    <ComboBoxItem Content="Roupas"/>
+                    <ComboBoxItem Content="Cosméticos"/>
+                    <ComboBoxItem Content="Bebidas"/>
+                    <ComboBoxItem Content="Conta de água"/>
+                    <ComboBoxItem Content="Conta de telefone"/>
+                    <ComboBoxItem Content="Conta de Internet"/>
+                    <ComboBoxItem Content="Conta de Luz"/>
+                    <ComboBoxItem Content="Moradia"/>
+                    <ComboBoxItem Content="Saúde"/>
+                    <ComboBoxItem Content="Transporte"/>
+                    <ComboBoxItem Content="Pagamentos de Boletos"/>
+                    <ComboBoxItem Content="Café"/>
+                    <ComboBoxItem Content="Morena"/>
+                    <ComboBoxItem Content="Pets"/>
+                    <ComboBoxItem Content="Viagem"/>
+                    <ComboBoxItem Content="Academia"/>
+                    <ComboBoxItem Content="Presentes"/>
+                    <ComboBoxItem Content="Outros"/>
+                </ComboBox>
+                <Label Content="Categoria da despesa:" HorizontalAlignment="Left" Margin="8,70,0,0" VerticalAlignment="Top" FontSize="14" Grid.Column="1" Height="29" Width="146"/>
+                <TextBox x:Name="textoboxvalor" HorizontalAlignment="Left" Height="28" Margin="159,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" FontSize="14" KeyDown="Textoboxvalor_KeyDown" HorizontalContentAlignment="Right" Text="0.00" GotFocus="Textoboxvalor_GotFocus" UndoLimit="10" MaxLength="8" Grid.Column="1"/>
+                <Label Content="Insira valor da despesa:" HorizontalAlignment="Left" Margin="1,133,0,0" VerticalAlignment="Top" FontSize="14" Grid.Column="1" Height="29" Width="153"/>
+                <Label x:Name="DataDespesa" Content="Data da despesa: " HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" FontSize="14" Width="190" Grid.Column="1" Height="29"/>
+                <Label Content="R$" HorizontalAlignment="Left" Margin="159,131,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="24"/>
+                <Button x:Name="SaveDespea" HorizontalAlignment="Left" Margin="274,277,0,0" VerticalAlignment="Top" Width="75" Cursor="Hand" Background="#FFA4E6AA" Height="35" Click="SaveDespea_Click" Grid.Column="1">
+                    <Image Height="26" Width="49" Source="images/iconfinder_floppy_285657.png"/>
+                </Button>
+                <Button HorizontalAlignment="Left" Margin="79,277,0,0" VerticalAlignment="Top" Width="75" Height="35" Background="#FFE05D5D" Grid.Column="1" Click="Button_Click_6">
+                    <Image Height="25" Width="65" Source="images/iconfinder_Gnome-Edit-Clear-64_55586.png"/>
+                </Button>
+                <TextBox x:Name="descricaoDespesa" HorizontalAlignment="Left" Height="63" Margin="159,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" MaxLength="30" Grid.Column="1"/>
+                <Label Content="Descrição(opcional):" HorizontalAlignment="Left" Margin="26,185,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="116"/>
+            </Grid>
+            <Grid x:Name="CanvaGanho" Visibility="Hidden" Margin="27,0,-27,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="11*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="textoboxvalorGanho" HorizontalAlignment="Left" Height="28" Margin="147,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="14" KeyDown="TextoboxvalorGanho_KeyDown" HorizontalContentAlignment="Right" Text="0.00" GotFocus="Textoboxvalormeta_GotFocus" UndoLimit="10" MaxLength="8" Grid.Column="1"/>
+                <ComboBox x:Name="ComboBoxGanho" HorizontalAlignment="Left" Margin="147,68,0,0" VerticalAlignment="Top" Width="217" Height="27" BorderThickness="1,0,0,0" SelectionChanged="ComboBoxGanho_SelectionChanged" SelectedIndex="0" Grid.Column="1">
+                    <ComboBoxItem Content="Salário"/>
+                    <ComboBoxItem Content="Pensão"/>
+                    <ComboBoxItem Content="Aposentadoria"/>
+                    <ComboBoxItem Content="Renda Extra"/>
+                    <ComboBoxItem Content="Apostas"/>
+                    <ComboBoxItem Content="Rinha de Galo"/>
+                    <ComboBoxItem Content="Investimentos"/>
+                    <ComboBoxItem Content="Outros"/>
+                </ComboBox>
+                <TextBox x:Name="CampoGanho" HorizontalAlignment="Left" Height="75" Margin="145,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Grid.Column="1"/>
+                <Label x:Name="DataGanho" Content="Data da Receita: " HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" Width="263" FontSize="14" Grid.Column="1" Height="29"/>
+                <Label Content="Categoria de renda:" HorizontalAlignment="Left" Margin="7,68,0,0" VerticalAlignment="Top" Height="31" Width="130" RenderTransformOrigin="0.455,0.158" FontSize="14" Grid.Column="1"/>
+                <Label Content="Insira o valor da renda:" HorizontalAlignment="Left" Margin="0,116,0,0" VerticalAlignment="Top" Width="153" FontSize="14" Grid.Column="1" Height="29"/>
+                <Label Content="Descrição(opcional):" HorizontalAlignment="Left" Margin="7,178,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.115" Width="138" FontSize="14" Grid.Column="1" Height="29"/>
+                <Button x:Name="buttonSalvarGanho" HorizontalAlignment="Left" Margin="283,282,0,0" VerticalAlignment="Top" Width="81" Background="#FFA8F3AB" Height="38" Click="ButtonSalvarGanho_Click" Grid.Column="1">
+                    <Image HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="35" Source="images/iconfinder_floppy_285657.png"/>
+                </Button>
+                <Button x:Name="buttonLimparGanho" HorizontalAlignment="Left" Margin="99,282,0,0" VerticalAlignment="Top" Width="74" Background="#FFE05D5D" Height="36" Grid.Column="1" Click="ButtonLimparGanho_Click">
+                    <Image HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.49,0.7" Source="images/iconfinder_Gnome-Edit-Clear-64_55586.png"/>
+                </Button>
+                <Label Content="R$" Grid.Column="1" HorizontalAlignment="Left" Margin="147,120,0,0" VerticalAlignment="Top"/>
+            </Grid>
+
+            <Grid x:Name="CanvaMetas" Visibility="Hidden">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="381*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="textoboxvalormeta" HorizontalAlignment="Left" Height="28" Margin="121,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" FontSize="14" KeyDown="Textoboxvalormeta_KeyDown" HorizontalContentAlignment="Right" Text="0.00" GotFocus="Textoboxvalormeta_GotFocus" UndoLimit="10" MaxLength="8" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="Pretendo Gastar:" HorizontalAlignment="Left" Margin="9,22,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="118" Grid.Row="1" FontSize="14"/>
+                <Label Content="Descrição:" HorizontalAlignment="Left" Margin="45,81,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="82" Grid.Row="1" FontSize="14"/>
+                <TextBox x:Name="descricaoMeta" HorizontalAlignment="Left" Height="85" Margin="121,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" MaxLength="30" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="R$" HorizontalAlignment="Left" Margin="121,24,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="24" Grid.Row="1"/>
+                <ComboBox x:Name="ComboMesMeta" HorizontalAlignment="Left" Margin="121,188,0,0" VerticalAlignment="Top" Width="54" BorderThickness="1,0,0,0" SelectedIndex="0" Grid.Column="1" Height="22" Grid.Row="1">
+                    <ComboBoxItem/>
+                    <ComboBoxItem/>
+                </ComboBox>
+                <Label Content="Mês:" HorizontalAlignment="Left" Margin="79,184,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="48" Grid.Row="1" FontSize="14"/>
+                <Button x:Name="BntSalvarMeta" HorizontalAlignment="Left" Margin="252,252,0,0" VerticalAlignment="Top" Width="75" Click="BntSalvarMeta_Click" Grid.Column="1" Height="35" Grid.Row="1" Background="#FF66C194">
+                    <Image Height="31" Width="44" Source="images/iconfinder_floppy_285657.png"/>
+                </Button>
+                <Button HorizontalAlignment="Left" Margin="68,252,0,0" VerticalAlignment="Top" Width="77" Grid.Column="1" Height="33" Grid.Row="1" Background="#FFD36762" Click="Button_Click_7">
+                    <Image Height="29" Width="50" Source="images/iconfinder_Gnome-Edit-Clear-64_55586.png"/>
+                </Button>
+            </Grid>
+            <Grid x:Name="CanvaCarteira" Margin="0,3,0,-3" Visibility="Hidden">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="53*"/>
+                    <ColumnDefinition Width="44*"/>
+                    <ColumnDefinition Width="226*"/>
+                    <ColumnDefinition Width="277*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="buttonEditarUsu" Content="Alterar Dados" Margin="86,179,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="100" Grid.Column="2" Click="ButtonEditarUsu_Click"/>
+                <Button Content="Formatar Carteira" Margin="71,52,0,0" VerticalAlignment="Top" Height="32" RenderTransformOrigin="-0.031,6.8" Click="Button_Click_3" Grid.Column="3" HorizontalAlignment="Left" Width="148"/>
+                <Button Content="Formatar Metas" Margin="71,96,0,0" VerticalAlignment="Top" Height="32" Click="Button_Click_2" HorizontalAlignment="Left" Width="148" Grid.Column="3"/>
+                <Button Content="Formatar Despesa" Margin="71,144,0,0" VerticalAlignment="Top" Height="32" Click="Button_Click_4" HorizontalAlignment="Left" Width="148" Grid.Column="3"/>
+                <Button Content="Formatar Ganho" Margin="71,187,0,0" VerticalAlignment="Top" Height="32" Click="Button_Click_5" HorizontalAlignment="Left" Width="148" Grid.Column="3"/>
+                <Label Content="Nome:" Margin="17,52,150,0" VerticalAlignment="Top" Height="26" Grid.Column="2"/>
+                <TextBox x:Name="TextNomeAlt" Height="23" Margin="66,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="TextBox_TextChanged_2" HorizontalAlignment="Left" Width="147" Grid.Column="2"/>
+                <Label Content="Login:" Margin="20,91,147,0" VerticalAlignment="Top" Height="26" Grid.Column="2"/>
+                <TextBox x:Name="TextLoginAlt" Height="23" Margin="66,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" Width="147" Grid.Column="2"/>
+                <Label Content="Senha:" Margin="17,133,153,0" VerticalAlignment="Top" RenderTransformOrigin="1.098,0.692" Height="26" Grid.Column="2"/>
+                <PasswordBox x:Name="TextSenhaAlt" Margin="66,133,0,0" VerticalAlignment="Top" Height="23" HorizontalAlignment="Left" Width="147" Grid.Column="2"/>
+                <Label Content="Alterar Dados Cadastrais:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Width="166"/>
+                <Label Content="Opções de Reset:" Grid.Column="3" HorizontalAlignment="Left" Margin="37,21,0,0" VerticalAlignment="Top"/>
+                <Border BorderBrush="Black" BorderThickness="1" Margin="10,0,1,10" Grid.ColumnSpan="2" Grid.Column="1"/>
+                <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3" Margin="5,0,10,10"/>
+            </Grid>
+            <Grid x:Name="CanvaRelatorio" Visibility="Hidden">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="248*"/>
+                    <ColumnDefinition Width="211*"/>
+                    <ColumnDefinition Width="141*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Gerar Relatorio" Margin="92,171,0,0" VerticalAlignment="Top" Click="Button_Click_1" Grid.Column="1" HorizontalAlignment="Left" Width="109" Height="20" Background="#FF3F9369"/>
+                <ComboBox x:Name="MesRela" Margin="5,68,0,0" VerticalAlignment="Top" SelectedIndex="0" Grid.Column="1" HorizontalAlignment="Left" Width="164" Height="22" BorderThickness="1,0,0,0">
+                    <ComboBoxItem/>
+                    <ComboBoxItem/>
+                    <ComboBoxItem/>
+                </ComboBox>
+                <Label Content="Selecione o mês:" Margin="0,64,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="98" Height="26"/>
+                <Label Content="Selecione o Tipo de Relatorio:" Margin="0,105,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="167" Height="26"/>
+                <ComboBox x:Name="SelecionarTipoRela" Margin="5,109,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Width="164" Height="22" BorderThickness="1,0,0,0">
+                    <ComboBoxItem/>
+                    <ComboBoxItem/>
+                </ComboBox>
+            </Grid>
+        </Grid>
+        <Grid x:Name="GridRevolt" Margin="237,55,36,33" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Hidden"/>
+        <Button x:Name="MenuButton" Background="White" Padding="0" BorderThickness="0,0,0,0" Click="MenuOpen" Margin="10,19,0,0" Height="29" VerticalAlignment="Top" Cursor="Hand" Grid.Column="1" HorizontalAlignment="Left" Width="31" ToolTip="Menu">
+            <Image x:Name="icoMenu" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="25" Source="images/menu3.png" RenderTransformOrigin="0.48,0.143"/>
+        </Button>
+    </Grid>
+</Window>
