@@ -1,1 +1,1 @@
-Arquivos de Classe, imagens e xaml
+Arquivos de Classe, imagens e xaml.
