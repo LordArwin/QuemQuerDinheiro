@@ -1,1 +1,1 @@
-.exe para excutar o sistema
+.exe para excutar o sistema.
